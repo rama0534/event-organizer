@@ -1,38 +1,24 @@
-import React, { useEffect, useState} from "react";
+import React from "react";
 import './App.css';
+import {BrowserRouter as Router, Route, Routes} from "react-router-dom";
+import AppNavbar from "./components/AppNavbar";
+import Home from "./components/Home";
+import GroupList from "./components/GroupList";
+import Contact from "./components/Contact";
+import About from "./components/About";
 
 const App = () => {
-
-  const [groups, setGroups] = useState([]);
-  const [loading, setLoading] = useState(false);
-
-  useEffect(() => {
-    setLoading(true);
-
-    fetch('api/groups')
-        .then(res => res.json())
-        .then(date => setGroups(date));
-    setLoading(false);
-  }, []);
-
-  if(loading) {
-    return <p> Loading......</p>
-  }
   return (
-      <div className="App">
-        <header className="App-header">
-          <div className="App-intro">
-            <h2> Available Groups</h2>
-            {groups.map(group =>
-              <div key={group.id}>
-                {group.name}
-              </div>
-            )}
-          </div>
-        </header>
-
-      </div>
-  )
+      <Router>
+          <AppNavbar />
+          <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/about" element={<About />} />
+              <Route path="/contact" element={<Contact />} />
+              <Route path="/groups" element={<GroupList/>} />
+          </Routes>
+      </Router>
+  );
 }
 
 export default App;
