@@ -11,7 +11,7 @@ const EditGroup = () => {
     state: "",
     country: "",
     postalCode: "",
-    events: "",
+    events: [],
   };
   const [group, setGroup] = useState(initialFormState);
   const navigate = useNavigate();
@@ -83,7 +83,7 @@ const EditGroup = () => {
                 type="text"
                 placeholder="No Events"
                 value={group.events.length || ""}
-                disabled
+                readOnly
               />
               <Form.Control.Feedback type="invalid">
                 Please enter group name.
