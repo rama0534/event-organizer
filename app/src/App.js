@@ -6,6 +6,8 @@ import Home from "./components/Home";
 import GroupList from "./components/GroupList";
 import Contact from "./components/Contact";
 import About from "./components/About";
+import EditGroup from "./components/EditGroup";
+
 
 const App = () => {
   return (
@@ -16,6 +18,7 @@ const App = () => {
               <Route path="/about" element={<About />} />
               <Route path="/contact" element={<Contact />} />
               <Route path="/groups" element={<GroupList/>} />
+              <Route path="/groups/:id" element={<EditGroup/>} />
           </Routes>
       </Router>
   );
