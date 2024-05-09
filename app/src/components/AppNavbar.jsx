@@ -3,7 +3,7 @@ import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import React from "react";
 
-const AppNavbar = () => {
+const AppNavbar = ({ isLoggedIn }) => {
   return (
     <div className="container">
       <Navbar bg="primary" data-bs-theme="dark">
@@ -12,7 +12,8 @@ const AppNavbar = () => {
             <Nav.Link href="/">Home..</Nav.Link>
             <Nav.Link href="/about">About..</Nav.Link>
             <Nav.Link href="/contact">Contact..</Nav.Link>
-            <Nav.Link href="/groups">groups..</Nav.Link>
+            {isLoggedIn && <Nav.Link href="/groups">Groups</Nav.Link>}
+            {/*<Nav.Link href="/groups">groups..</Nav.Link>*/}
           </Nav>
           <Nav className="justify-content-end">
             <Nav.Link
